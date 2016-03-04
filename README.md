@@ -25,7 +25,7 @@ http://marketplace.eclipse.org/content/assertj-m2e-connector
 
 ### Update site:
 
-https://github.com/hennejg/assertj-m2e/raw/master/updateSite/
+https://github.com/hennejg/m2e-assertj/raw/master/updateSite/
 
 ## Changes
 
