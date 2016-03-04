@@ -1,0 +1,25 @@
+<catalog>
+  <catalogItems>
+    <catalogItem>
+      <categoryId>org.eclipse.m2e.discovery.category.lifecycles</categoryId>
+      <m2e-versions>1.0,1.1</m2e-versions>
+      <description>assertj</description>
+      <groupId>lifecycles</groupId>
+      <id>org.eclipse.m2e.discovery.lifecyclemapping.assertj</id>
+      <kind>lifecycles</kind>
+      <license>EPL</license>
+      <name>assertj</name>
+      <provider>levigo solutions gmbh</provider>
+      <p2>
+        <repositoryUrl>https://repository.levigo.org/content/repositories/forge-sites/m2e-extras/0.14.0/N/0.14.0.201109270543/</repositoryUrl>
+        <iuId>org.levigo.m2e.assertj.feature.feature.group</iuId>
+        <lifecycleMappingIU>
+          <iuId>org.levigo.m2e.assertj</iuId>
+        </lifecycleMappingIU>
+      </p2>
+      <overview>
+        <summary>assertj</summary>
+      </overview>
+    </catalogItem>  
+  </catalogItems>
+</catalog>

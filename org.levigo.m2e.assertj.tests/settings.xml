@@ -1,0 +1,40 @@
+<settings>
+	<localRepository>target/localrepo</localRepository>
+
+	<profiles>
+		<profile>
+			<id>test</id>
+			<repositories>
+				<repository>
+					<id>central</id>
+					<url>file:remoterepo</url>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>central</id>
+					<url>file:remoterepo</url>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+	</profiles>
+
+	<activeProfiles>
+		<!-- That doesn't work. Even if the remoterepo is properly primed, it doesn't 
+			find org.assertj:assertj-assertions-generator-maven-plugin:2.0.0 -->
+		<!-- <activeProfile>test</activeProfile> -->
+	</activeProfiles>
+
+</settings>
