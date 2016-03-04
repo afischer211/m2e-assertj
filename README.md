@@ -1,12 +1,13 @@
 # AssertJ M2E Connector
 
-Plugin for  Eclipse (m2e) to support AssertJ assertion generation in Maven projects
+A plugin for Eclipse (m2e) to support AssertJ assertion generation in Maven projects.
 
-The current version 1.0.0.5 supports m2e 1.7 and thus eclipse Mars.
+The current version 0.1.0 supports m2e 1.7 and thus eclipse Mars.
 
 ## Features
 
-**Refresh:** Automatically refresh the generated assertion classes upon source change.
+**Source folders:** Automatically configure the source folders for the generated assertion classes.
+**Refresh:** Automatically refresh the generated assertion classes upon source changes.
 
 ## Usage
 
