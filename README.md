@@ -7,6 +7,7 @@ The current version 0.1.0 supports m2e 1.7 and thus eclipse Mars.
 ## Features
 
 **Source folders:** Automatically configure the source folders for the generated assertion classes.
+
 **Refresh:** Automatically refresh the generated assertion classes upon source changes.
 
 ## Usage
@@ -21,8 +22,7 @@ IMPORTANT: The Plugin onlys works, when you don't ignore the M2E-Connector for a
 
 ### Eclipse-Marketplace:
 
-WORK IN PROGRESS, does not yet work.
-http://marketplace.eclipse.org/content/assertj-m2e-connector
+https://marketplace.eclipse.org/content/assertj-m2e-connector
 
 ### Update site:
 
