@@ -30,6 +30,6 @@ https://github.com/hennejg/m2e-assertj/raw/master/updateSite/
 
 ## Changes
 
-* 0.1.00.3.0tial version
+* 0.1.0: initial version
 * 0.2.0: compatibility with eclipse Neon
 * 0.3.0: trigger refresh on pom change
