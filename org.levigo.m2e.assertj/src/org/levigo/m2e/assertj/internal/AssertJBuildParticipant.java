@@ -137,38 +137,46 @@ public class AssertJBuildParticipant extends MojoExecutionBuildParticipant {
         (List<String>) getMojoParameterValue("excludes", List.class, monitor));
 
     boolean foundDelta = false;
-    for (String classpathElement : classpathElements) {
-      File f = new File(classpathElement);
-      if (f.isDirectory()) {
-        String[] deletions = buildContext.newDeleteScanner(f).getIncludedFiles();
-        if (null != deletions && deletions.length > 0) {
-          log.info("###################### Found deletion in " + f);
 
-          // clean out target
-          File generated = getTargetDir(monitor);
-          for (File g : generated.listFiles()) {
-            deleteRecursively(g);
-          }
+    // Check for POM change 
+    Scanner pomScanner = buildContext.newScanner(mavenProject.getFile());
+    pomScanner.scan();
+    if (pomScanner.getIncludedFiles().length > 0) {
+      log.info("###################### Found pom change");
 
-          foundDelta = true;
-          break;
-        } else {
-          Scanner ds = buildContext.newScanner(f);
-          ds.scan();
-          String[] includedFiles = ds.getIncludedFiles();
-          if (includedFiles != null)
-            for (String file : includedFiles) {
-              foundDelta |= deltaScanner.matches(file);
-              log.info("###################### Found matching class file " + file + ": " + foundDelta);
-              break;
-            }
-        }
-        log.info("###################### Check for delta in " + f + ": " + foundDelta);
-      }
-
-      if (foundDelta)
-        break;
+      cleanTargetFolder(monitor);
+      foundDelta = true;
     }
+
+    // Check for resource change
+    if (!foundDelta)
+      for (String classpathElement : classpathElements) {
+        File f = new File(classpathElement);
+        if (f.isDirectory()) {
+          String[] deletions = buildContext.newDeleteScanner(f).getIncludedFiles();
+          if (null != deletions && deletions.length > 0) {
+            log.info("###################### Found deletion in " + f);
+
+            cleanTargetFolder(monitor);
+            foundDelta = true;
+            break;
+          } else {
+            Scanner ds = buildContext.newScanner(f);
+            ds.scan();
+            String[] includedFiles = ds.getIncludedFiles();
+            if (includedFiles != null)
+              for (String file : includedFiles) {
+                foundDelta |= deltaScanner.matches(file);
+                log.info("###################### Found matching class file " + file + ": " + foundDelta);
+                break;
+              }
+          }
+          log.info("###################### Check for delta in " + f + ": " + foundDelta);
+        }
+
+        if (foundDelta)
+          break;
+      }
 
     if (!foundDelta) {
       log.info("No changes");
@@ -186,9 +194,10 @@ public class AssertJBuildParticipant extends MojoExecutionBuildParticipant {
       buildContext.refresh(generated);
 
       /*
-       * For some weird reason the java build triggered by buildContext.refresh(generated) above does not (yet) see the
-       * changed class file (although we detected the changed class file result). This causes compile errors upon
-       * added/removed/updated fields and properties. We schedule another workspace refresh to correct this situation.
+       * For some weird reason the java build triggered by buildContext.refresh(generated) above
+       * does not (yet) see the changed class file (although we detected the changed class file
+       * result). This causes compile errors upon added/removed/updated fields and properties. We
+       * schedule another workspace refresh to correct this situation.
        */
       new Job("Refresh generated assertions") {
         @Override
@@ -212,6 +221,14 @@ public class AssertJBuildParticipant extends MojoExecutionBuildParticipant {
     }
 
     return result;
+  }
+
+  private void cleanTargetFolder(IProgressMonitor monitor) throws CoreException {
+    // clean out target
+    File generated = getTargetDir(monitor);
+    for (File g : generated.listFiles()) {
+      deleteRecursively(g);
+    }
   }
 
   /**

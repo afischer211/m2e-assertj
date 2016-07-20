@@ -51,6 +51,7 @@
 					<packages>
 						<param>test</param>
 						<param>foo.bar</param>
+<!-- 						<param>foo.baz</param> -->
 					</packages>
 					<excludes>
 						<param>.*Excluded.*</param>
