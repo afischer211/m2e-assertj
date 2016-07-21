@@ -2,12 +2,13 @@
 <?compositeMetadataRepository version='1.0.0'?>
 <repository name='M2E AssertJ update site All Versions' type='org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository' version='1.0.0'>
   <properties size='2'>
-    <property name='p2.timestamp' value='1469012410819'/>
+    <property name='p2.timestamp' value='1469106011497'/>
     <property name='p2.atomic.composite.loading' value='true'/>
   </properties>
-  <children size='3'>
+  <children size='4'>
     <child location='0.1'/>
     <child location='0.2'/>
     <child location='0.3'/>
+    <child location='0.4'/>
   </children>
 </repository>

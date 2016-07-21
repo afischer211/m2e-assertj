@@ -2,7 +2,7 @@
 
 A plugin for Eclipse (m2e) to support AssertJ assertion generation in Maven projects.
 
-The current version 0.3.0 supports m2e 1.8 and thus eclipse Neon.
+The current version 0.4.0 supports m2e 1.8 and thus eclipse Neon.
 
 ## Features
 
@@ -33,3 +33,4 @@ https://github.com/hennejg/m2e-assertj/raw/master/updateSite/
 * 0.1.0: initial version
 * 0.2.0: compatibility with eclipse Neon
 * 0.3.0: trigger refresh on pom change
+* 0.4.0: use target/test-classes instead of target/classes as output location for generated sources
