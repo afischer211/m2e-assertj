@@ -138,7 +138,7 @@ public class AssertJBuildParticipant extends MojoExecutionBuildParticipant {
 
     boolean foundDelta = false;
 
-    // Check for POM change 
+    // Check for POM change
     Scanner pomScanner = buildContext.newScanner(mavenProject.getFile());
     pomScanner.scan();
     if (pomScanner.getIncludedFiles().length > 0) {
@@ -226,8 +226,13 @@ public class AssertJBuildParticipant extends MojoExecutionBuildParticipant {
   private void cleanTargetFolder(IProgressMonitor monitor) throws CoreException {
     // clean out target
     File generated = getTargetDir(monitor);
-    for (File g : generated.listFiles()) {
-      deleteRecursively(g);
+    if (null != generated && generated.isDirectory()) {
+      File[] targetDirectoryContents = generated.listFiles();
+      if (null != targetDirectoryContents) {
+        for (File g : targetDirectoryContents) {
+          deleteRecursively(g);
+        }
+      }
     }
   }
 
@@ -237,9 +242,13 @@ public class AssertJBuildParticipant extends MojoExecutionBuildParticipant {
    * @param file
    */
   private static void deleteRecursively(File file) {
-    if (file.isDirectory())
-      for (final File f : file.listFiles())
-        deleteRecursively(f);
+    if (file.isDirectory()) {
+      File[] directoryContents = file.listFiles();
+      if (null != directoryContents) {
+        for (final File f : directoryContents)
+          deleteRecursively(f);
+      }
+    }
     file.delete();
   }
 
