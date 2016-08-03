@@ -7,7 +7,7 @@
   http://www.eclipse.org/legal/epl-v10.html
 -->
 <site>
-   <feature url="features/org.levigo.m2e.assertj.feature_0.4.0.qualifier.jar" id="org.levigo.m2e.assertj.feature" version="0.4.0.qualifier">
+   <feature url="features/org.levigo.m2e.assertj.feature_0.5.0.qualifier.jar" id="org.levigo.m2e.assertj.feature" version="0.5.0.qualifier">
       <category name="m2eclipse-assertj"/>
    </feature>
    <category-def name="m2eclipse-assertj" label="M2E assertj Connector"/>
