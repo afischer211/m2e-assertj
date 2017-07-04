@@ -5,7 +5,7 @@
   <parent>
     <groupId>io.takari.tycho</groupId>
     <artifactId>tycho-support</artifactId>
-    <version>0.15.0</version>
+    <version>1.1.0</version>
   </parent>
 
   <groupId>org.levigo.m2e</groupId>
@@ -19,10 +19,10 @@
     <p2MetadataName>M2E AssertJ Maven connector</p2MetadataName>
 
     <tycho-version>${tychoVersion}</tycho-version>
-    <tycho-extras-version>0.22.0</tycho-extras-version>
+    <tycho-extras-version>1.0.0</tycho-extras-version>
     <maven-antrun-plugin.version>1.7</maven-antrun-plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <platform-version>[3.9,4.0)</platform-version>
+    <platform-version>[3.9,5.0)</platform-version>
   </properties>
 
   <modules>
