@@ -10,7 +10,7 @@
 	<parent>
 		<groupId>org.levigo.m2e</groupId>
 		<artifactId>org.levigo.m2e.assertj.parent</artifactId>
-		<version>0.6.0-SNAPSHOT</version>
+		<version>0.6.1-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>org.levigo.m2e.assertj</artifactId>

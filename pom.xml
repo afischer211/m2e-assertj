@@ -10,7 +10,7 @@
 
   <groupId>org.levigo.m2e</groupId>
   <artifactId>org.levigo.m2e.assertj.parent</artifactId>
-  <version>0.6.0-SNAPSHOT</version>
+  <version>0.6.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>M2E AssertJ Maven connector</name>
 
@@ -19,16 +19,51 @@
     <p2MetadataName>M2E AssertJ Maven connector</p2MetadataName>
 
     <tycho-version>${tychoVersion}</tycho-version>
-    <tycho-extras-version>1.0.0</tycho-extras-version>
+    <tychoVersion>1.2.0</tychoVersion>
+    <tycho-extras-version>1.2.0</tycho-extras-version>
     <maven-antrun-plugin.version>1.7</maven-antrun-plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <platform-version>[3.9,5.0)</platform-version>
+    <m2e-core.url>http://download.eclipse.org/technology/m2e/releases/1.10/</m2e-core.url>
+    <tycho.test.jvmArgs>-Xmx512m</tycho.test.jvmArgs>
   </properties>
 
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-surefire-plugin</artifactId>
+          <version>${tychoVersion}</version>
+          <configuration>
+            <failIfNoTests>false</failIfNoTests>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
   <modules>
     <module>org.levigo.m2e.assertj</module>
     <module>org.levigo.m2e.assertj.feature</module>
     <module>org.levigo.m2e.assertj.tests</module>
     <module>org.levigo.m2e.assertj.p2updatesite</module>
   </modules>
+
+  <repositories>
+    <!-- 
+      The org.eclipse.m2e.tests.common bundle is deployed to the m2e releases repository but is not 
+      part of the simultaneous release. The connectors use this bundle for testing so we need to
+      be able to pick it up.
+    -->
+    <repository>
+      <id>m2e-core</id>
+      <url>${m2e-core.url}</url>
+      <layout>p2</layout>
+    </repository>
+    <repository>
+      <id>luna</id>
+      <url>http://download.eclipse.org/releases/photon</url>
+      <layout>p2</layout>
+    </repository>
+  </repositories>
 </project>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.levigo.m2e.assertj.feature_0.6.0.jar" id="org.levigo.m2e.assertj.feature" version="0.6.0.qualifier">
+   <feature url="features/org.levigo.m2e.assertj.feature_0.6.1.jar" id="org.levigo.m2e.assertj.feature" version="0.6.1.qualifier">
       <category name="m2e-assertj"/>
    </feature>
    <category-def name="m2e-assertj" label="AssertJ-Connnector for M2E"/>
