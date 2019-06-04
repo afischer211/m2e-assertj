@@ -5,3 +5,6 @@
 .classpath
 .project
 **/.settings/
+
+# update-site
+**/updateSite/**/*
