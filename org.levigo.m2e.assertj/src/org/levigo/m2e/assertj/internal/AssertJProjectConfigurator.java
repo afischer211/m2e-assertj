@@ -50,6 +50,9 @@ public class AssertJProjectConfigurator extends AbstractSourcesGenerationProject
         if(sourcePath != null) {
           IClasspathEntryDescriptor entry = classpath.addSourceEntry(sourcePath, facade.getTestOutputLocation(), true);
           entry.setClasspathAttribute(IClasspathAttribute.IGNORE_OPTIONAL_PROBLEMS, "true"); //$NON-NLS-1$
+          entry.setClasspathAttribute(IClasspathAttribute.OPTIONAL, "true"); //$NON-NLS-1$
+          entry.setClasspathAttribute(IClasspathAttribute.TEST, "true"); //$NON-NLS-1$
+          entry.setClasspathAttribute("maven.pomderived", "true"); //$NON-NLS-1$
         }
       }
     }
